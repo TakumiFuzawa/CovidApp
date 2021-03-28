@@ -8,5 +8,6 @@ target 'CovidApp' do
   # Pods for CovidApp
  
     pod 'FSCalendar'
+    pod 'CalculateCalendarLogic'
 
 end
