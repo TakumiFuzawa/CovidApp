@@ -20,6 +20,7 @@
                     </view>
                     <connections>
                         <segue destination="78A-GM-JVG" kind="show" identifier="goHealthCheck" id="JuN-i4-Xvb"/>
+                        <segue destination="6pU-DV-4jG" kind="show" identifier="goChart" id="35S-d6-i2N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -41,6 +42,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="spG-Jk-Gjp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="638" y="77"/>
+        </scene>
+        <!--Chart View Controller-->
+        <scene sceneID="x6U-Z2-Axt">
+            <objects>
+                <viewController modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="6pU-DV-4jG" customClass="ChartViewController" customModule="CovidApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="X7D-Fb-mYQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="0pN-Ca-due"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="F2M-zo-vE7"/>
+                    <connections>
+                        <segue destination="cjC-eK-DTp" kind="show" identifier="goCIrcle" id="PfY-zt-v2N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y4w-zy-eg6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-103" y="779"/>
+        </scene>
+        <!--Circle Chart View Controller-->
+        <scene sceneID="lYu-iO-Jjx">
+            <objects>
+                <viewController modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="cjC-eK-DTp" customClass="CircleChartViewController" customModule="CovidApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="r93-vd-8RD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="zFu-0O-pLy"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dsQ-58-V4Y"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yQc-Iz-esS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="638" y="779"/>
         </scene>
     </scenes>
     <resources>
