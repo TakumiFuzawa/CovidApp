@@ -75,7 +75,7 @@
             
             let height = view.frame.size.height / 2
             setUpButton("健康管理", size: size, y: height + 190, color: colors.blue, parentView: view).addTarget(self, action: #selector(goHealthCheck), for: .touchDown)
-            setUpButton("県別情報", size: size, y: height + 240, color: colors.blue, parentView: view)
+            setUpButton("県別情報", size: size, y: height + 240, color: colors.blue, parentView: view).addTarget(self, action: #selector(goChart), for: .touchDown)
             
             setUpImageButton("chat", x: view.frame.size.width - 55).addTarget(self, action: #selector(chatAction), for: .touchDown)
             setUpImageButton("reload", x: 10).addTarget(self, action: #selector(reloadAction), for: .touchDown)
@@ -101,7 +101,7 @@
             let size = CGSize(width: 200, height: 40)
             let leftX = view.frame.size.width * 0.38
             let rightX = view.frame.size.width * 0.85
-            let font = UIFont.systemFont(ofSize: 35, weight: .heavy)
+            let font = UIFont.systemFont(ofSize: 30, weight: .heavy)
             let color = colors.blue
             
             setUpAPILable(pcr, size: size, centerX: leftX, y: 60, font: font, color: color, parentView)
@@ -147,6 +147,11 @@
         //健康管理のタップアクション
         @objc func goHealthCheck() {
             performSegue(withIdentifier: "goHealthCheck", sender: nil)
+        }
+        
+        //県別情報タップしたら遷移
+        @objc func goChart() {
+            performSegue(withIdentifier: "goChart", sender: nil)
         }
         
         //imageView
