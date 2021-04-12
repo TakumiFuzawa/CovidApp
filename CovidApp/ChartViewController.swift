@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Charts
 
 
 class ChartViewController: UIViewController {
@@ -18,6 +19,8 @@ class ChartViewController: UIViewController {
     var casesCount = UILabel()
     var deaths = UILabel()
     var deathsCount = UILabel()
+    var array: [CovidInfo.Prefectures] = []
+    var chartView: HorizontalBarChartView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +68,7 @@ class ChartViewController: UIViewController {
         view.addSubview(searchBar)
         
         let uiView = UIView()
-        uiView.frame = CGRect(x: 10, y: 480, width: view.frame.size.width - 20, height: 167)
+        uiView.frame = CGRect(x: 10, y: 550, width: view.frame.size.width - 20, height: 167)
         uiView.layer.cornerRadius = 10
         uiView.backgroundColor = .white
         uiView.layer.shadowOffset = CGSize(width: 0, height: 2)
@@ -94,6 +97,40 @@ class ChartViewController: UIViewController {
         
         view.backgroundColor = .systemGroupedBackground
         
+        chartView = HorizontalBarChartView(frame: CGRect(x: 0, y: 175, width: view.frame.size.width, height: 350))
+        chartView.animate(yAxisDuration: 1.0, easingOption: .easeOutCirc)
+        chartView.xAxis.labelCount = 10
+        chartView.xAxis.labelTextColor = colors.bluePurple
+        chartView.doubleTapToZoomEnabled = false
+        chartView.delegate = self
+        chartView.pinchZoomEnabled = false
+        chartView.leftAxis.labelTextColor = colors.bluePurple
+        chartView.xAxis.drawGridLinesEnabled = false
+        chartView.legend.enabled = false
+        chartView.rightAxis.enabled = false
+        
+        array = CovidSingleton.shared.prefecture
+        dataSet()
+        
+    }
+    
+    func dataSet() {
+        var names:[String] = []
+        for i in 0...9 {
+            names += ["\(self.array[i].name_ja)"]
+        }
+        chartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: names)
+        
+        var entries:[BarChartDataEntry] = []
+        for i in 0...9 {
+            entries += [BarChartDataEntry(x: Double(i), y: Double(array[i].cases))]
+        }
+        let set = BarChartDataSet(entries: entries, label: "県別情報")
+        set.colors = [colors.blue]
+        set.valueTextColor = colors.bluePurple
+        set.highlightColor = colors.white
+        chartView.data = BarChartData(dataSet: set)
+        view.addSubview(chartView)
     }
     
     func bottomLabel(_ parentView: UIView, _ label: UILabel, _ x: CGFloat, _ y: CGFloat, text: String, size: CGFloat, weight: UIFont.Weight, color: UIColor) {
@@ -142,4 +179,9 @@ extension ChartViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         print("キャンセルボタンがタップ")
     }
+}
+
+//MARK: - ChartViewDelegate
+extension ChartViewController: ChartViewDelegate {
+    
 }
