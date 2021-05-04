@@ -188,7 +188,7 @@ class ChartViewController: UIViewController {
     
     //nextButtonタップ時のアクション
     @objc func nextButtonAction() {
-        print("tap nextButton")
+        performSegue(withIdentifier: "goCIrcle", sender: nil)
     }
 }
 
