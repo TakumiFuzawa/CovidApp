@@ -4,7 +4,7 @@
 
 # DEMO
 
-<img src="![Simulator Screen Shot - iPhone 12 Pro - 2021-05-17 at 12 02 27](https://user-images.githubusercontent.com/46737524/118427749-eab0aa80-b708-11eb-9767-46c30035ccf5.png)" width="200">
+<img src="https://user-images.githubusercontent.com/46737524/118427749-eab0aa80-b708-11eb-9767-46c30035ccf5.png" width="200">
 
 # Features
 
