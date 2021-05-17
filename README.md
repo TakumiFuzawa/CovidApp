@@ -20,8 +20,12 @@ Requirementで列挙したライブラリなどのインストール方法
 
 ```bash
 vim Podfile
+
 pod 'FSCalendar'
-pod ''
+pod 'CalculateCalendarLogic'
+pod 'Charts'
+
+pod install
 ```
 
 # Usage
