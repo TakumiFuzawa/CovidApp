@@ -12,12 +12,11 @@
 
 # Requirement
 
-* huga 3.5.2
-* hogehuga 1.0.2
+* Swift 5.4
 
 # Installation
 
-Requirementで列挙したライブラリなどのインストール方法を説明する
+Requirementで列挙したライブラリなどのインストール方法
 
 ```bash
 pip install huga_package
