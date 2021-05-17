@@ -19,7 +19,9 @@
 Requirementで列挙したライブラリなどのインストール方法
 
 ```bash
-pip install huga_package
+vim Podfile
+pod 'FSCalendar'
+pod ''
 ```
 
 # Usage
